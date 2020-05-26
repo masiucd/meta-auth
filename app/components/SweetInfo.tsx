@@ -1,6 +1,8 @@
 /* eslint-disable react/prop-types */
 import * as React from 'react'
 import styled from 'styled-components/native'
+import { useDispatch } from 'react-redux'
+import { addToCart } from '../../redux/cart/cart.actions'
 
 interface Props {
   item: Recipe
@@ -45,13 +47,14 @@ const Description = styled.View`
 const OverLayImg = styled.View`
   position: absolute;
   top: 0;
-  height: 300px
+  height: 300px;
   width: 100%;
   background: rgba(0, 0, 0, 0.3);
 `
 
 const SweetInfo: React.FC<Props> = ({ item }) => {
   const { title, image, description, ing1, ing2, ing3, ing4 } = item
+  const dispatch = useDispatch()
 
   return (
     <StyledSweetInfo>
@@ -81,7 +84,7 @@ const SweetInfo: React.FC<Props> = ({ item }) => {
         </Text>
       </Description>
 
-      <Button onPress={() => alert('add to cart')}>
+      <Button onPress={() => dispatch(addToCart(item))}>
         <Text
           style={{ fontSize: 25, textTransform: 'capitalize', color: '#333' }}
         >

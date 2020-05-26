@@ -16,7 +16,7 @@ const menuData: MenuData[] = [
   },
   {
     id: '212312@@@!',
-    text: 'butik & studio',
+    text: 'store',
     path: 'Store',
   },
   {

@@ -9,6 +9,7 @@ export enum ActionTypes {
   ADD_TO_CART = 'ADD_TO_CART',
   SET_ERROR = 'SET_ERROR',
   CLEAR_ERROR = 'CLEAR_ERROR',
+  CLEAR_CART = 'CLEAR_CART',
 }
 
 export interface GetCartAction {
@@ -27,9 +28,13 @@ export interface SetErrorAction {
 export interface ClearAction {
   type: ActionTypes.CLEAR_ERROR
 }
+export interface ClearCartAction {
+  type: ActionTypes.CLEAR_CART
+}
 
-export type MenuAction =
+export type CartAction =
   | AddCartAction
   | GetCartAction
   | SetErrorAction
   | ClearAction
+  | ClearCartAction

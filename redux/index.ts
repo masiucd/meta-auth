@@ -10,11 +10,13 @@ import ReduxThunk from 'redux-thunk'
 import menuReducer from './menu/menu.reducer'
 import productReducer from './products/product.reducer'
 import recipesReducer from './recipes/recipes.reducer'
+import cartReducer from './cart/cart.reducer'
 
 const rootReducer = combineReducers({
   products: productReducer,
   recipes: recipesReducer,
   menu: menuReducer,
+  cart: cartReducer,
 })
 
 export type AppState = ReturnType<typeof rootReducer>

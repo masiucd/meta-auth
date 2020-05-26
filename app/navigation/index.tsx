@@ -6,11 +6,11 @@ import * as React from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
 import { NavigationContainer } from '@react-navigation/native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
-import { BlurView } from 'expo-blur'
+
 import HomeScreen from '../screens/Home'
-import { Image, TouchableOpacity, View } from 'react-native'
+import { Image, TouchableOpacity, Text } from 'react-native'
 import { theme } from '../../utils/theme'
-import useToggle from '../hooks/useToggle'
+import Icon from 'react-native-vector-icons/AntDesign'
 import { useDispatch, useSelector } from 'react-redux'
 import { AppState } from '../../redux'
 import { toggleMenu } from '../../redux/menu/menu.actions'
@@ -19,13 +19,14 @@ import Recept from '../screens/Recept'
 import Search from '../screens/Search'
 import Store from '../screens/Store'
 import RecipeInfo from '../screens/RecipeInfo'
+import { selectCart } from '../../redux/cart/cart.selector'
 
 const RootStack = createStackNavigator<RootStackParamList>()
 const TabStack = createBottomTabNavigator<MyTabsStackParamList>()
 
 const MainNavigation: React.FC = () => {
   const dispatch = useDispatch()
-  const isHidden = useSelector((state: AppState) => state.menu.hidden)
+  const cart = useSelector((state: AppState) => selectCart(state))
 
   return (
     <RootStack.Navigator
@@ -71,10 +72,89 @@ const MainNavigation: React.FC = () => {
           ),
         }}
       />
-      <RootStack.Screen name="Recept" component={Recept} />
+      <RootStack.Screen
+        name="Recept"
+        component={Recept}
+        options={{
+          headerRight: () => (
+            <TouchableOpacity style={{ position: 'relative' }}>
+              <Icon
+                name="shoppingcart"
+                size={40}
+                style={{ marginRight: 10 }}
+                color="#fff"
+              ></Icon>
+              <Text
+                style={{
+                  color: '#333',
+                  fontSize: 14,
+                  position: 'absolute',
+                  left: 19,
+                  top: 8,
+                }}
+              >
+                {cart.length}
+              </Text>
+            </TouchableOpacity>
+          ),
+        }}
+      />
       <RootStack.Screen name="Search" component={Search} />
-      <RootStack.Screen name="Store" component={Store} />
-      <RootStack.Screen name="RecipeInfo" component={RecipeInfo} />
+      <RootStack.Screen
+        name="Store"
+        component={Store}
+        options={{
+          headerTitle: 'Cart',
+          headerRight: () => (
+            <TouchableOpacity style={{ position: 'relative' }}>
+              <Icon
+                name="shoppingcart"
+                size={40}
+                style={{ marginRight: 10 }}
+                color="#fff"
+              ></Icon>
+              <Text
+                style={{
+                  color: '#333',
+                  fontSize: 14,
+                  position: 'absolute',
+                  left: 19,
+                  top: 8,
+                }}
+              >
+                {cart.length}
+              </Text>
+            </TouchableOpacity>
+          ),
+        }}
+      />
+      <RootStack.Screen
+        name="RecipeInfo"
+        component={RecipeInfo}
+        options={{
+          headerRight: () => (
+            <TouchableOpacity style={{ position: 'relative' }}>
+              <Icon
+                name="shoppingcart"
+                size={40}
+                style={{ marginRight: 10 }}
+                color="#fff"
+              ></Icon>
+              <Text
+                style={{
+                  color: '#333',
+                  fontSize: 14,
+                  position: 'absolute',
+                  left: 19,
+                  top: 8,
+                }}
+              >
+                {cart.length}
+              </Text>
+            </TouchableOpacity>
+          ),
+        }}
+      />
     </RootStack.Navigator>
   )
 }
