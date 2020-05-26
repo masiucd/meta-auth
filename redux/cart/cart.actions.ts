@@ -19,3 +19,11 @@ export const getCart = () => async (dispatch: Dispatch<GetActionType>) => {
     })
   }
 }
+
+type AddToCartActionType = AddCartAction | SetErrorAction
+
+export const addToCart = (cart: Rec) => async (
+  dispatch: Dispatch<AddToCartActionType>,
+) => {
+  //
+}
