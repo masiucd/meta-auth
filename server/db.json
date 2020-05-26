@@ -1,0 +1,108 @@
+{
+  "recipes": [
+    {
+      "title": "Devils cake",
+      "image": "https://images.unsplash.com/photo-1559620192-032c4bc4674e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=670&q=80",
+      "ing1": "something",
+      "ing2": "something",
+      "ing3": "something",
+      "ing4": "something",
+      "category": "cake",
+      "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum numquam facilis officia aperiam nihil sit eaque dignissimos soluta rerum error voluptates sapiente quisquam facere ratione, saepe quam corporis voluptas repudiandae. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum numquam facilis officia aperiam nihil sit eaque dignissimos soluta rerum error voluptates sapiente quisquam facere ratione, saepe quam corporis voluptas repudiandae.",
+      "id": "1590422421239"
+    },
+    {
+      "title": "coco ball",
+      "image": "https://images.unsplash.com/photo-1559620192-032c4bc4674e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=670&q=80",
+      "ing1": "something",
+      "ing2": "something",
+      "ing3": "something",
+      "ing4": "something",
+      "category": "chocolate",
+      "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum numquam facilis officia aperiam nihil sit eaque dignissimos soluta rerum error voluptates sapiente quisquam facere ratione, saepe quam corporis voluptas repudiandae. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum numquam facilis officia aperiam nihil sit eaque dignissimos soluta rerum error voluptates sapiente quisquam facere ratione, saepe quam corporis voluptas repudiandae.",
+      "id": "1590422446952"
+    },
+    {
+      "title": "panacotta",
+      "image": "https://images.unsplash.com/photo-1559620192-032c4bc4674e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=670&q=80",
+      "ing1": "something",
+      "ing2": "something",
+      "ing3": "something",
+      "ing4": "something",
+      "category": "desert",
+      "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum numquam facilis officia aperiam nihil sit eaque dignissimos soluta rerum error voluptates sapiente quisquam facere ratione, saepe quam corporis voluptas repudiandae. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum numquam facilis officia aperiam nihil sit eaque dignissimos soluta rerum error voluptates sapiente quisquam facere ratione, saepe quam corporis voluptas repudiandae.",
+      "id": "1590422453402"
+    },
+    {
+      "title": "carrot cake",
+      "image": "https://images.unsplash.com/photo-1559620192-032c4bc4674e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=670&q=80",
+      "ing1": "something",
+      "ing2": "something",
+      "ing3": "something",
+      "ing4": "something",
+      "category": "cake",
+      "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum numquam facilis officia aperiam nihil sit eaque dignissimos soluta rerum error voluptates sapiente quisquam facere ratione, saepe quam corporis voluptas repudiandae. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum numquam facilis officia aperiam nihil sit eaque dignissimos soluta rerum error voluptates sapiente quisquam facere ratione, saepe quam corporis voluptas repudiandae.",
+      "id": "1590422458720"
+    },
+    {
+      "title": "eclair",
+      "image": "https://images.unsplash.com/photo-1559620192-032c4bc4674e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=670&q=80",
+      "ing1": "something",
+      "ing2": "something",
+      "ing3": "something",
+      "ing4": "something",
+      "category": "dessert",
+      "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum numquam facilis officia aperiam nihil sit eaque dignissimos soluta rerum error voluptates sapiente quisquam facere ratione, saepe quam corporis voluptas repudiandae. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum numquam facilis officia aperiam nihil sit eaque dignissimos soluta rerum error voluptates sapiente quisquam facere ratione, saepe quam corporis voluptas repudiandae.",
+      "id": "1590422479874"
+    },
+    {
+      "title": "crepes",
+      "image": "https://images.unsplash.com/photo-1559620192-032c4bc4674e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=670&q=80",
+      "ing1": "something",
+      "ing2": "something",
+      "ing3": "something",
+      "ing4": "something",
+      "category": "dessert",
+      "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum numquam facilis officia aperiam nihil sit eaque dignissimos soluta rerum error voluptates sapiente quisquam facere ratione, saepe quam corporis voluptas repudiandae. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum numquam facilis officia aperiam nihil sit eaque dignissimos soluta rerum error voluptates sapiente quisquam facere ratione, saepe quam corporis voluptas repudiandae.",
+      "id": "1590422487692"
+    },
+    {
+      "title": "toffe dessert",
+      "image": "https://images.unsplash.com/photo-1559620192-032c4bc4674e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=670&q=80",
+      "ing1": "something",
+      "ing2": "something",
+      "ing3": "something",
+      "ing4": "something",
+      "category": "dessert",
+      "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum numquam facilis officia aperiam nihil sit eaque dignissimos soluta rerum error voluptates sapiente quisquam facere ratione, saepe quam corporis voluptas repudiandae. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum numquam facilis officia aperiam nihil sit eaque dignissimos soluta rerum error voluptates sapiente quisquam facere ratione, saepe quam corporis voluptas repudiandae.",
+      "id": "1590422498775"
+    }
+  ],
+  "products": [
+    {
+      "title": "Kakor",
+      "image": "https://images.unsplash.com/photo-1578985545062-69928b1d9587?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1280&q=80",
+      "path": "Cakes",
+      "id": "00212590416768696"
+    },
+    {
+      "title": "Bullar",
+      "image": "https://images.unsplash.com/photo-1509365465985-25d11c17e812?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=675&q=80",
+      "path": "Buns",
+      "id": "15904167212128696"
+    },
+    {
+      "title": "Desserts",
+      "image": "https://images.unsplash.com/photo-1551024506-0bccd828d307?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=80",
+      "path": "Desserts",
+      "id": "15904123128696"
+    },
+    {
+      "title": "Choklad",
+      "image": "https://images.unsplash.com/photo-1575377427642-087cf684f29d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
+      "path": "Chocolate",
+      "id": "1590416768696"
+    }
+  ],
+  "cart": []
+}
