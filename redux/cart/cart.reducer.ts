@@ -8,12 +8,6 @@ const initialState: CartState = {
 
 export default (state: CartState = initialState, action: CartAction) => {
   switch (action.type) {
-    case ActionTypes.GET_CART:
-      return {
-        ...state,
-        cart: action.payload,
-        isLoading: false,
-      }
     case ActionTypes.ADD_TO_CART:
       return {
         ...state,

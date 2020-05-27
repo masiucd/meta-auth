@@ -33,5 +33,7 @@ interface Recipe {
   ing2: string
   ing3: string
   ing4: string
+  category: string
+  price: number
   description: string
 }

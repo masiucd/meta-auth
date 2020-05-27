@@ -10,9 +10,9 @@ import { AppState } from '../../redux'
 import { getProducts } from '../../redux/products/products.actions'
 import { selectProducts } from '../../redux/products/products.selector'
 import Menu from '../components/Menu'
+import { toggleMenu } from '../../redux/menu/menu.actions'
 
 import { StackNavigationProp } from '@react-navigation/stack'
-import { toggleMenu } from '../../redux/menu/menu.actions'
 type ProductsScreenNavigationProp = StackNavigationProp<
   RootStackParamList,
   'Products'

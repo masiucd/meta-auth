@@ -1,24 +1,52 @@
 import * as React from 'react'
-import { Text } from 'react-native'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { AppState } from '../../redux'
 import { selectCart } from '../../redux/cart/cart.selector'
-import { getCart } from '../../redux/cart/cart.actions'
+
 import styled from 'styled-components/native'
 import { FlatList } from 'react-native-gesture-handler'
 import CartItem from '../components/CartItem'
+
 interface Props {}
 
 const StyledStore = styled.View`
   flex: 1;
 `
 
+const Text = styled.Text`
+  font-size: 20px;
+  padding: 15px 10px;
+  text-align: center;
+  text-shadow: 2px 1px ${(props) => props.theme.colors.primary};
+`
+
+const CheckoutBtn = styled.TouchableOpacity`
+  padding: 6px 8px;
+  border: 4px solid ${(props) => props.theme.colors.primary};
+  border-radius: 16px;
+  background: ${(props) => props.theme.colors.primaryLight};
+  width: 200px;
+`
+
+const BtnText = styled.Text`
+  color: ${(props) => props.theme.colors.dark};
+  text-align: center;
+  font-size: 20px;
+`
+
+const TotalPrice = styled.View`
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  margin: 10px 0;
+`
+
+const TotalPriceText = styled.Text`
+  font-size: 25px;
+`
+
 const Store: React.FC<Props> = () => {
-  const dispatch = useDispatch()
   const cart = useSelector((state: AppState) => selectCart(state))
-  React.useEffect(() => {
-    dispatch(getCart())
-  }, [])
 
   return (
     <StyledStore>
@@ -34,6 +62,17 @@ const Store: React.FC<Props> = () => {
         renderItem={({ item }) => <CartItem item={item} />}
         keyExtractor={(item) => item.id + Math.random()}
       />
+
+      {cart.length > 0 && (
+        <TotalPrice>
+          <TotalPriceText>
+            Total: {cart.reduce((a, b) => a + b.price, 0).toFixed(2)}$
+          </TotalPriceText>
+          <CheckoutBtn onPress={() => alert('checkout')}>
+            <BtnText>Checkout</BtnText>
+          </CheckoutBtn>
+        </TotalPrice>
+      )}
     </StyledStore>
   )
 }

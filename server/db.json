@@ -9,6 +9,7 @@
       "ing4": "something",
       "category": "cake",
       "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum numquam facilis officia aperiam nihil sit eaque dignissimos soluta rerum error voluptates sapiente quisquam facere ratione, saepe quam corporis voluptas repudiandae. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum numquam facilis officia aperiam nihil sit eaque dignissimos soluta rerum error voluptates sapiente quisquam facere ratione, saepe quam corporis voluptas repudiandae.",
+      "price": 33.23,
       "id": "1590422421239"
     },
     {
@@ -19,6 +20,7 @@
       "ing3": "something",
       "ing4": "something",
       "category": "chocolate",
+      "price": 13.03,
       "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum numquam facilis officia aperiam nihil sit eaque dignissimos soluta rerum error voluptates sapiente quisquam facere ratione, saepe quam corporis voluptas repudiandae. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum numquam facilis officia aperiam nihil sit eaque dignissimos soluta rerum error voluptates sapiente quisquam facere ratione, saepe quam corporis voluptas repudiandae.",
       "id": "1590422446952"
     },
@@ -30,6 +32,7 @@
       "ing3": "something",
       "ing4": "something",
       "category": "desert",
+      "price": 10,
       "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum numquam facilis officia aperiam nihil sit eaque dignissimos soluta rerum error voluptates sapiente quisquam facere ratione, saepe quam corporis voluptas repudiandae. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum numquam facilis officia aperiam nihil sit eaque dignissimos soluta rerum error voluptates sapiente quisquam facere ratione, saepe quam corporis voluptas repudiandae.",
       "id": "1590422453402"
     },
@@ -41,6 +44,7 @@
       "ing3": "something",
       "ing4": "something",
       "category": "cake",
+      "price": 19.21,
       "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum numquam facilis officia aperiam nihil sit eaque dignissimos soluta rerum error voluptates sapiente quisquam facere ratione, saepe quam corporis voluptas repudiandae. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum numquam facilis officia aperiam nihil sit eaque dignissimos soluta rerum error voluptates sapiente quisquam facere ratione, saepe quam corporis voluptas repudiandae.",
       "id": "1590422458720"
     },
@@ -52,6 +56,7 @@
       "ing3": "something",
       "ing4": "something",
       "category": "dessert",
+      "price": 5.54,
       "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum numquam facilis officia aperiam nihil sit eaque dignissimos soluta rerum error voluptates sapiente quisquam facere ratione, saepe quam corporis voluptas repudiandae. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum numquam facilis officia aperiam nihil sit eaque dignissimos soluta rerum error voluptates sapiente quisquam facere ratione, saepe quam corporis voluptas repudiandae.",
       "id": "1590422479874"
     },
@@ -63,6 +68,7 @@
       "ing3": "something",
       "ing4": "something",
       "category": "dessert",
+      "price": 3.22,
       "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum numquam facilis officia aperiam nihil sit eaque dignissimos soluta rerum error voluptates sapiente quisquam facere ratione, saepe quam corporis voluptas repudiandae. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum numquam facilis officia aperiam nihil sit eaque dignissimos soluta rerum error voluptates sapiente quisquam facere ratione, saepe quam corporis voluptas repudiandae.",
       "id": "1590422487692"
     },
@@ -74,6 +80,7 @@
       "ing3": "something",
       "ing4": "something",
       "category": "dessert",
+      "price": 9.83,
       "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum numquam facilis officia aperiam nihil sit eaque dignissimos soluta rerum error voluptates sapiente quisquam facere ratione, saepe quam corporis voluptas repudiandae. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum numquam facilis officia aperiam nihil sit eaque dignissimos soluta rerum error voluptates sapiente quisquam facere ratione, saepe quam corporis voluptas repudiandae.",
       "id": "1590422498775"
     }

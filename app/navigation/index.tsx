@@ -1,9 +1,13 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable react/display-name */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-var-requires */
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 import * as React from 'react'
-import { createStackNavigator } from '@react-navigation/stack'
+import {
+  createStackNavigator,
+  StackNavigationOptions,
+} from '@react-navigation/stack'
 import { NavigationContainer } from '@react-navigation/native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 
@@ -20,9 +24,19 @@ import Search from '../screens/Search'
 import Store from '../screens/Store'
 import RecipeInfo from '../screens/RecipeInfo'
 import { selectCart } from '../../redux/cart/cart.selector'
+import { RouteProp } from '@react-navigation/native'
+import { StackNavigationProp } from '@react-navigation/stack'
+
+type ScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Store'>
+type ScreenRouteProp = RouteProp<RootStackParamList, 'Store'>
 
 const RootStack = createStackNavigator<RootStackParamList>()
 const TabStack = createBottomTabNavigator<MyTabsStackParamList>()
+
+interface NavigationAndRoute {
+  navigation: ScreenNavigationProp
+  route: ScreenRouteProp
+}
 
 const MainNavigation: React.FC = () => {
   const dispatch = useDispatch()
@@ -75,9 +89,12 @@ const MainNavigation: React.FC = () => {
       <RootStack.Screen
         name="Recept"
         component={Recept}
-        options={{
+        options={(props) => ({
           headerRight: () => (
-            <TouchableOpacity style={{ position: 'relative' }}>
+            <TouchableOpacity
+              style={{ position: 'relative' }}
+              onPress={() => props.navigation.navigate('Store')}
+            >
               <Icon
                 name="shoppingcart"
                 size={40}
@@ -97,7 +114,7 @@ const MainNavigation: React.FC = () => {
               </Text>
             </TouchableOpacity>
           ),
-        }}
+        })}
       />
       <RootStack.Screen name="Search" component={Search} />
       <RootStack.Screen
@@ -131,9 +148,12 @@ const MainNavigation: React.FC = () => {
       <RootStack.Screen
         name="RecipeInfo"
         component={RecipeInfo}
-        options={{
+        options={(props) => ({
           headerRight: () => (
-            <TouchableOpacity style={{ position: 'relative' }}>
+            <TouchableOpacity
+              style={{ position: 'relative' }}
+              onPress={() => props.navigation.navigate('Store')}
+            >
               <Icon
                 name="shoppingcart"
                 size={40}
@@ -153,7 +173,7 @@ const MainNavigation: React.FC = () => {
               </Text>
             </TouchableOpacity>
           ),
-        }}
+        })}
       />
     </RootStack.Navigator>
   )
