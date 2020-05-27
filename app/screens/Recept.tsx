@@ -40,7 +40,7 @@ const Recept: React.FC<Props> = ({ navigation }) => {
           <RecipeItem navigation={navigation} item={item} />
         )}
         keyExtractor={(item: Recipe) => item.title}
-        numColumns={3}
+        numColumns={2}
       />
     </StyledRecipeList>
   )

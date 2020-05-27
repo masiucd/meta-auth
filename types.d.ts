@@ -36,4 +36,5 @@ interface Recipe {
   category: string
   price: number
   description: string
+  qty: number
 }

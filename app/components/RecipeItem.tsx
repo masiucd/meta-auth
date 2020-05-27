@@ -18,26 +18,42 @@ const StyledRecipe = styled.TouchableOpacity`
   flex: 1;
   justify-content: center;
   align-items: center;
-  height: 200px;
+
   margin: 8px;
-  border: 2px solid ${theme.colors.primary};
-  padding: 6px;
+  border: 2px solid ${theme.colors.dark};
 `
 
 const Text = styled.Text`
-  font-size: 16px;
+  font-size: 25px;
+  font-family: 'Chewy';
   text-transform: capitalize;
+  position: absolute;
+  z-index: 3;
+  color: ${(props) => props.theme.colors.primary};
 `
 
 const Image = styled.Image`
   width: 100%;
-  height: 120px;
+  height: 200px;
+  position: relative;
+`
+
+const OverLay = styled.View`
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* right: 0;
+  bottom: 0; */
+  background: ${(props) => props.theme.colors.darkShadow};
+  height: 200px;
+  width: 100%;
 `
 
 const RecipeItem: React.FC<Props> = ({ item, navigation }) => {
   return (
     <StyledRecipe onPress={() => navigation.navigate('RecipeInfo', { item })}>
       <Image source={{ uri: item.image }} />
+      <OverLay />
       <Text>{item.title}</Text>
     </StyledRecipe>
   )

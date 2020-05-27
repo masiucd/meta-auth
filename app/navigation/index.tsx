@@ -4,10 +4,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 import * as React from 'react'
-import {
-  createStackNavigator,
-  StackNavigationOptions,
-} from '@react-navigation/stack'
+import { createStackNavigator } from '@react-navigation/stack'
 import { NavigationContainer } from '@react-navigation/native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 
@@ -23,7 +20,7 @@ import Recept from '../screens/Recept'
 import Search from '../screens/Search'
 import Store from '../screens/Store'
 import RecipeInfo from '../screens/RecipeInfo'
-import { selectCart } from '../../redux/cart/cart.selector'
+import { selectCart, selectCartItemCount } from '../../redux/cart/cart.selector'
 import { RouteProp } from '@react-navigation/native'
 import { StackNavigationProp } from '@react-navigation/stack'
 
@@ -41,6 +38,9 @@ interface NavigationAndRoute {
 const MainNavigation: React.FC = () => {
   const dispatch = useDispatch()
   const cart = useSelector((state: AppState) => selectCart(state))
+  const cartItemCount = useSelector((state: AppState) =>
+    selectCartItemCount(state),
+  )
 
   return (
     <RootStack.Navigator
@@ -110,7 +110,7 @@ const MainNavigation: React.FC = () => {
                   top: 8,
                 }}
               >
-                {cart.length}
+                {cartItemCount}
               </Text>
             </TouchableOpacity>
           ),
@@ -139,7 +139,7 @@ const MainNavigation: React.FC = () => {
                   top: 8,
                 }}
               >
-                {cart.length}
+                {cartItemCount}
               </Text>
             </TouchableOpacity>
           ),
@@ -169,7 +169,7 @@ const MainNavigation: React.FC = () => {
                   top: 8,
                 }}
               >
-                {cart.length}
+                {cartItemCount}
               </Text>
             </TouchableOpacity>
           ),

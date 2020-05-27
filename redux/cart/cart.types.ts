@@ -6,6 +6,7 @@ export interface CartState {
 
 export enum ActionTypes {
   ADD_TO_CART = 'ADD_TO_CART',
+  REMOVE_FROM_CART = 'REMOVE_FROM_CART',
   SET_ERROR = 'SET_ERROR',
   CLEAR_ERROR = 'CLEAR_ERROR',
   CLEAR_CART = 'CLEAR_CART',
@@ -13,6 +14,10 @@ export enum ActionTypes {
 
 export interface AddCartAction {
   type: ActionTypes.ADD_TO_CART
+  payload: Recipe
+}
+export interface RemoveFromCartAction {
+  type: ActionTypes.REMOVE_FROM_CART
   payload: Recipe
 }
 
@@ -29,6 +34,7 @@ export interface ClearCartAction {
 
 export type CartAction =
   | AddCartAction
+  | RemoveFromCartAction
   | SetErrorAction
   | ClearAction
   | ClearCartAction

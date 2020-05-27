@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { useSelector } from 'react-redux'
 import { AppState } from '../../redux'
-import { selectCart } from '../../redux/cart/cart.selector'
+import { selectCart, selectCartTotal } from '../../redux/cart/cart.selector'
 
 import styled from 'styled-components/native'
 import { FlatList } from 'react-native-gesture-handler'
@@ -47,6 +47,7 @@ const TotalPriceText = styled.Text`
 
 const Store: React.FC<Props> = () => {
   const cart = useSelector((state: AppState) => selectCart(state))
+  const totalPrice = useSelector((state: AppState) => selectCartTotal(state))
 
   return (
     <StyledStore>
@@ -65,9 +66,7 @@ const Store: React.FC<Props> = () => {
 
       {cart.length > 0 && (
         <TotalPrice>
-          <TotalPriceText>
-            Total: {cart.reduce((a, b) => a + b.price, 0).toFixed(2)}$
-          </TotalPriceText>
+          <TotalPriceText>Total: {totalPrice.toFixed(2)}$</TotalPriceText>
           <CheckoutBtn onPress={() => alert('checkout')}>
             <BtnText>Checkout</BtnText>
           </CheckoutBtn>

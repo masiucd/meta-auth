@@ -9,6 +9,7 @@ declare module 'styled-components' {
       secondary: string
       light: string
       dark: string
+      darkShadow: string
     }
     boxShadow: {
       main: string
@@ -32,6 +33,7 @@ export const theme: DefaultTheme = {
     light: '#fff',
     dark: '#333',
     secondary: '#fe33ee32',
+    darkShadow: 'rgba(0,0,0,0.2)',
   },
   boxShadow: {
     main: '2px 3px rgba(0,0,0,0.2)',
