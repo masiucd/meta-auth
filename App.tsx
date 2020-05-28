@@ -6,6 +6,8 @@ import { Provider } from 'react-redux'
 import configureStore from './redux'
 import { ThemeProvider } from 'styled-components'
 import { theme } from './utils/theme'
+import { Elements, injectStripe, StripeProvider } from 'react-stripe-elements'
+
 const store = configureStore()
 
 export default function App(): JSX.Element {

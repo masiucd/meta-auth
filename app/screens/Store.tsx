@@ -2,10 +2,11 @@ import * as React from 'react'
 import { useSelector } from 'react-redux'
 import { AppState } from '../../redux'
 import { selectCart, selectCartTotal } from '../../redux/cart/cart.selector'
-
+import Stripe from '../components/Stripe'
 import styled from 'styled-components/native'
 import { FlatList } from 'react-native-gesture-handler'
 import CartItem from '../components/CartItem'
+import StripeCheckout from 'react-stripe-checkout'
 
 interface Props {}
 
@@ -70,6 +71,17 @@ const Store: React.FC<Props> = () => {
           <CheckoutBtn onPress={() => alert('checkout')}>
             <BtnText>Checkout</BtnText>
           </CheckoutBtn>
+          <StripeCheckout
+            label="Pay Now"
+            name="Cooie Bookie Ltd."
+            billingAddress
+            shippingAddress
+            image="https://svgshare.com/i/CUz.svg"
+            description={`Tour total is $${totalPrice}`}
+            amount={totalPrice * 100}
+            token={(token) => alert('success')}
+            stripeKey="pk_test_ycdf6l0HLuPq23T3ORRoEi5i00aqVBzAyT"
+          />
         </TotalPrice>
       )}
     </StyledStore>
