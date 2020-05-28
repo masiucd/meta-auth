@@ -71,17 +71,6 @@ const Store: React.FC<Props> = () => {
           <CheckoutBtn onPress={() => alert('checkout')}>
             <BtnText>Checkout</BtnText>
           </CheckoutBtn>
-          <StripeCheckout
-            label="Pay Now"
-            name="Cooie Bookie Ltd."
-            billingAddress
-            shippingAddress
-            image="https://svgshare.com/i/CUz.svg"
-            description={`Tour total is $${totalPrice}`}
-            amount={totalPrice * 100}
-            token={(token) => alert('success')}
-            stripeKey="pk_test_ycdf6l0HLuPq23T3ORRoEi5i00aqVBzAyT"
-          />
         </TotalPrice>
       )}
     </StyledStore>
