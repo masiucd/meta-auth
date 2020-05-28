@@ -2,11 +2,9 @@ import * as React from 'react'
 import { useSelector } from 'react-redux'
 import { AppState } from '../../redux'
 import { selectCart, selectCartTotal } from '../../redux/cart/cart.selector'
-import Stripe from '../components/Stripe'
 import styled from 'styled-components/native'
 import { FlatList } from 'react-native-gesture-handler'
 import CartItem from '../components/CartItem'
-import StripeCheckout from 'react-stripe-checkout'
 
 interface Props {}
 

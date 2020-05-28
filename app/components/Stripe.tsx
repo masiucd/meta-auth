@@ -1,14 +1,13 @@
 import * as React from 'react'
-import { API_KEY } from 'react-native-dotenv'
 import StripeCheckout from 'react-stripe-checkout'
-import { View, Text } from 'react-native'
+
 interface Props {
   price: number
 }
 
 const Stripe: React.FC<Props> = ({ price }) => {
   const priceForStripe = price * 100
-  const publisherKey = API_KEY
+  const publisherKey = 'ssaasdsa'
   return (
     <StripeCheckout
       label="Pay Now"
