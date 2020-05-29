@@ -38,3 +38,17 @@ interface Recipe {
   description: string
   qty: number
 }
+
+interface Ingredient {
+  name: string
+  volume: number
+  measure: string
+}
+interface Sweet {
+  name: string
+  description: string
+  category: string
+  image: string
+  price: number
+  ingredients: Array<Ingredient>
+}
