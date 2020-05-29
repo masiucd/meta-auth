@@ -1,12 +1,12 @@
 /* eslint-disable react/prop-types */
 import * as React from 'react'
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
-import { Button } from 'react-native-elements'
 import styled from 'styled-components/native'
 import { theme } from '../../utils/theme'
 import OverLay from './styled/Overlay'
 import useToggle from '../hooks/useToggle'
-import { Text } from 'react-native'
+import { View, Text } from 'react-native'
+import { useSpring, animated } from 'react-spring'
+
 interface Props {
   product: Products
 }
@@ -28,12 +28,17 @@ const Image = styled.Image`
 
 const ProductItem: React.FC<Props> = ({ product }) => {
   const [on, toggle] = useToggle(false)
+  const props = useSpring({
+    width: on ? '100%' : '270%',
+  })
   return (
-    <StyledProduct activeOpacity={0.6} onPress={toggle}>
-      <Image source={{ uri: product.image }} />
+    <>
+      <StyledProduct activeOpacity={0.6} onPress={toggle}>
+        <Image source={{ uri: product.image }} />
 
-      <OverLay text={product.title} on={on} toggle={toggle} />
-    </StyledProduct>
+        <OverLay text={product.title} on={on} toggle={toggle} />
+      </StyledProduct>
+    </>
   )
 }
 export default ProductItem

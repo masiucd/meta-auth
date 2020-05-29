@@ -13,6 +13,7 @@ import Menu from '../components/Menu'
 import { toggleMenu } from '../../redux/menu/menu.actions'
 
 import { StackNavigationProp } from '@react-navigation/stack'
+
 type ProductsScreenNavigationProp = StackNavigationProp<
   RootStackParamList,
   'Products'
