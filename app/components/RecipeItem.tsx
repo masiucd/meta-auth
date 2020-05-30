@@ -10,7 +10,7 @@ type RecipeScreenNavigationProp = StackNavigationProp<
 >
 
 interface Props {
-  item: Recipe
+  item: Sweet
   navigation: RecipeScreenNavigationProp
 }
 
@@ -54,7 +54,7 @@ const RecipeItem: React.FC<Props> = ({ item, navigation }) => {
     <StyledRecipe onPress={() => navigation.navigate('RecipeInfo', { item })}>
       <Image source={{ uri: item.image }} />
       <OverLay />
-      <Text>{item.title}</Text>
+      <Text>{item.name}</Text>
     </StyledRecipe>
   )
 }

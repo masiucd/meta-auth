@@ -4,7 +4,7 @@ type RootStackParamList = {
   Recept: undefined
   Store: undefined
   Search: undefined
-  RecipeInfo: { item: Recipe }
+  RecipeInfo: { item: Sweet }
 }
 
 type MyTabsStackParamList = {
@@ -39,16 +39,19 @@ interface Recipe {
   qty: number
 }
 
+// new db
 interface Ingredient {
   name: string
   volume: number
   measure: string
 }
 interface Sweet {
+  id: number // TODO: Need to be added
   name: string
   description: string
   category: string
   image: string
   price: number
   ingredients: Array<Ingredient>
+  qty: number
 }

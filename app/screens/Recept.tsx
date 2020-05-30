@@ -1,8 +1,11 @@
 import * as React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { AppState } from '../../redux'
-import { selectRecipes } from '../../redux/recipes/recipes.selector'
-import { getRecipes } from '../../redux/recipes/recipes.actions'
+import {
+  selectRecipes,
+  selectSweets,
+} from '../../redux/recipes/recipes.selector'
+import { getRecipes, getSweets } from '../../redux/recipes/recipes.actions'
 import styled from 'styled-components/native'
 import { FlatList } from 'react-native-gesture-handler'
 import RecipeItem from '../components/RecipeItem'
@@ -25,21 +28,24 @@ const StyledRecipeList = styled.View`
 
 const Recept: React.FC<Props> = ({ navigation }) => {
   const dispatch = useDispatch()
-  const recipes = useSelector((state: AppState) => selectRecipes(state))
+  // const recipes = useSelector((state: AppState) => selectRecipes(state))
+  const sweets = useSelector((state: AppState) => selectSweets(state))
+  console.log(sweets)
 
   React.useEffect(() => {
-    dispatch(getRecipes())
+    // dispatch(getRecipes())
+    dispatch(getSweets())
   }, [])
 
   return (
     <StyledRecipeList>
       <FlatList
         style={{ marginTop: 40 }}
-        data={recipes}
+        data={sweets}
         renderItem={({ item }) => (
           <RecipeItem navigation={navigation} item={item} />
         )}
-        keyExtractor={(item: Recipe) => item.title}
+        keyExtractor={(item: Sweet) => item.name}
         numColumns={2}
       />
     </StyledRecipeList>

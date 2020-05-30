@@ -1,5 +1,5 @@
 export interface CartState {
-  cart: Recipe[]
+  cart: Sweet[]
   isLoading: boolean
   error: string | null
 }
@@ -14,11 +14,11 @@ export enum ActionTypes {
 
 export interface AddCartAction {
   type: ActionTypes.ADD_TO_CART
-  payload: Recipe
+  payload: Sweet
 }
 export interface RemoveFromCartAction {
   type: ActionTypes.REMOVE_FROM_CART
-  payload: Recipe
+  payload: Sweet
 }
 
 export interface SetErrorAction {

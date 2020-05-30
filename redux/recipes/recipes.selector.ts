@@ -8,3 +8,12 @@ export const selectRecipes = createSelector(
   [recipeState],
   (recipe: RecipeState) => recipe.recipes,
 )
+
+export const selectSweets = createSelector(
+  [recipeState],
+  (recipe: RecipeState) => recipe.sweets,
+)
+export const selectFilteredSweets = createSelector(
+  [recipeState],
+  (recipe: RecipeState) => recipe.filteredSweets,
+)

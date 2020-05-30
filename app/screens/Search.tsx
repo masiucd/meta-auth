@@ -3,21 +3,29 @@ import { Text, View, Button } from 'react-native'
 import { useSpring, animated } from 'react-spring'
 import useToggle from '../hooks/useToggle'
 import styled from 'styled-components/native'
-interface Props {}
+import {
+  selectFilteredSweets,
+  selectSweets,
+} from '../../redux/recipes/recipes.selector'
+import { useDispatch, useSelector } from 'react-redux'
+import { AppState } from '../../redux'
+import { getSweets } from '../../redux/recipes/recipes.actions'
+import FilterInput from '../components/SearchFilter'
+interface Props { }
 
 const Wrapper = animated(View)
 
 const Search: React.FC<Props> = () => {
-  const [state, setState] = React.useState([])
   const [on, toggle] = useToggle()
+
+  const dispatch = useDispatch()
+  const sweets = useSelector((state: AppState) => selectSweets(state))
+  const filteredSweets = useSelector((state: AppState) =>
+    selectFilteredSweets(state),
+  )
+
   React.useEffect(() => {
-    fetch('http://localhost:3000/all')
-      .then((res) => res.json())
-      .then((data) => {
-        // console.log(data)
-        setState(data)
-      })
-      .catch((err) => console.log(err))
+    dispatch(getSweets())
   }, [])
 
   const props = useSpring({
@@ -26,13 +34,16 @@ const Search: React.FC<Props> = () => {
 
   return (
     <>
-      <Text>Search</Text>
+      <FilterInput placeHolder="apa" />
+
       <Button title="toggle" onPress={toggle} />
       <Wrapper style={props}>
-        {state.map((x) => {
-          console.log(x)
-          return <Text key={x.name}>{x.name}</Text>
-        })}
+        {filteredSweets.length > 0
+          ? filteredSweets.map((x) => <Text key={x.name}>{x.name}</Text>)
+          : sweets.map((x) => {
+            // console.log(x)
+            return <Text key={x.name}>{x.name}</Text>
+          })}
       </Wrapper>
     </>
   )

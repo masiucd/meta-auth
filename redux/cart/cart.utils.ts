@@ -1,5 +1,5 @@
-export function addItemToCart(cartItems: Recipe[], itemToAdd: Recipe) {
-  const findItem = cartItems.find((item) => item.title === itemToAdd.title)
+export function addItemToCart(cartItems: Sweet[], itemToAdd: Sweet) {
+  const findItem = cartItems.find((item) => item.name === itemToAdd.name)
 
   if (findItem) {
     return cartItems.map((item) =>
@@ -9,10 +9,7 @@ export function addItemToCart(cartItems: Recipe[], itemToAdd: Recipe) {
   return [...cartItems, { ...itemToAdd, qty: 1 }]
 }
 
-export const removeFromCart = (
-  cartItems: Recipe[],
-  cartItemToRemove: Recipe,
-) => {
+export const removeFromCart = (cartItems: Sweet[], cartItemToRemove: Sweet) => {
   const existingCartItem = cartItems.find(
     (item) => item.id === cartItemToRemove.id,
   )
