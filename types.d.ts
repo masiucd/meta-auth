@@ -46,7 +46,7 @@ interface Ingredient {
   measure: string
 }
 interface Sweet {
-  id: number // TODO: Need to be added
+  id: number
   name: string
   description: string
   category: string

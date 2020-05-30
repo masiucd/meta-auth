@@ -12,7 +12,10 @@ app.use(cors())
 let database
 
 sqlite
-  .open({ driver: sqlite3.Database, filename: 'database.sqlite' })
+  .open({
+    driver: sqlite3.Database,
+    filename: 'database.sqlite',
+  })
   .then((database_) => {
     database = database_
   })
@@ -20,14 +23,15 @@ sqlite
 app.get('/all', (request, response) => {
   database
     .all(
-      'SELECT products.productName, products.description, products.category, products.image, products.price, ingredients.name, productIngredients.volume, productIngredients.measure FROM ingredients INNER JOIN productIngredients ON ingredients.ingredientId = productIngredients.ingredient_Id INNER JOIN products ON productIngredients.product_Id = products.productId',
-    )
+      'SELECT products.productId, products.productName, products.description, products.category, products.image, products.price, ingredients.name, productIngredients.volume, productIngredients.measure FROM ingredients INNER JOIN productIngredients ON ingredients.ingredientId = productIngredients.ingredient_Id INNER JOIN products ON productIngredients.product_Id = products.productId',
+  )
     .then((products) => {
       const newObjects = []
       for (let i = 0; i < products.length; i++) {
         const checkUsername = (obj) => obj.name === products[i].productName
         if (!newObjects.some(checkUsername)) {
           const newOb = {
+            id: products[i].productId,
             name: products[i].productName,
             description: products[i].description,
             category: products[i].category,
