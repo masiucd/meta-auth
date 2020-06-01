@@ -15,11 +15,15 @@ interface Props {
 }
 
 const FilterInputStyled = styled.TextInput`
-  padding: 1px;
+  padding: 1px 12px;
   border: 2px solid ${(props) => props.theme.colors.dark};
   font-size: 16px;
   margin: 20px 0;
   height: 40px;
+  width: 80%;
+  margin: 20px auto 0 auto;
+  border-radius: 16px;
+  box-shadow: 2px 5px 12px #333;
 `
 
 const FilterInput: React.FC<Props> = ({ placeHolder }) => {

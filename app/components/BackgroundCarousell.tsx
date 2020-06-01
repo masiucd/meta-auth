@@ -1,7 +1,16 @@
 /* eslint-disable react/prop-types */
 import * as React from 'react'
 import styled from 'styled-components/native'
-import { View, Text, StyleSheet, ScrollView, Dimensions, Image, NativeSyntheticEvent, SafeAreaView } from 'react-native'
+import {
+  View,
+  Text,
+  StyleSheet,
+  ScrollView,
+  Dimensions,
+  Image,
+  NativeSyntheticEvent,
+  SafeAreaView,
+} from 'react-native'
 
 const DEVICE_WIDTH = Dimensions.get('window').width
 
@@ -38,7 +47,7 @@ const styles = StyleSheet.create({
 })
 
 interface Props {
-  images: string[]
+  images: any[]
 }
 
 const BgCarousel: React.FC<Props> = ({ images }) => {
@@ -86,14 +95,25 @@ const BgCarousel: React.FC<Props> = ({ images }) => {
 
   return (
     <StyledView>
-      <ScrollView horizontal pagingEnabled onMomentumScrollEnd={updateIndex} ref={scrollRef}>
+      <ScrollView
+        horizontal
+        pagingEnabled
+        onMomentumScrollEnd={updateIndex}
+        ref={scrollRef}
+      >
         {images.map((image) => (
           <StyledImg key={image} source={{ uri: image }} />
         ))}
       </ScrollView>
       <CircleWrapper>
         {images.map((img, index) => (
-          <View key={img} style={[styles.whiteCircle, { opacity: index === selectedIndex ? 0.3 : 1 }]} />
+          <View
+            key={img}
+            style={[
+              styles.whiteCircle,
+              { opacity: index === selectedIndex ? 0.3 : 1 },
+            ]}
+          />
         ))}
       </CircleWrapper>
     </StyledView>
