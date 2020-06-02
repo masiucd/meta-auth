@@ -4,8 +4,6 @@ import styled from 'styled-components/native'
 import { theme } from '../../utils/theme'
 import OverLay from './styled/Overlay'
 import useToggle from '../hooks/useToggle'
-import { View, Text } from 'react-native'
-import { useSpring, animated } from 'react-spring'
 
 interface Props {
   product: Sweet
@@ -34,7 +32,12 @@ const ProductItem: React.FC<Props> = ({ product }) => {
       <StyledProduct activeOpacity={0.6} onPress={toggle}>
         <Image source={{ uri: product.image }} />
 
-        <OverLay text={product.category} on={on} toggle={toggle} />
+        <OverLay
+          text={product.category}
+          on={on}
+          toggle={toggle}
+          product={product}
+        />
       </StyledProduct>
     </>
   )

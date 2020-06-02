@@ -1,7 +1,6 @@
 /* eslint-disable react/prop-types */
 import * as React from 'react'
 import styled from 'styled-components/native'
-import { View } from 'react-native'
 import { RouteProp } from '@react-navigation/native'
 import SweetInfo from '../components/SweetInfo'
 

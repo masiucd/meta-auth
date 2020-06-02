@@ -33,11 +33,9 @@ const MenuItem: React.FC<Props> = ({ item, onNavigation }) => {
   }
 
   return (
-    <>
-      <StyledMenuItem onPress={sendToScreen}>
-        <Text>{item.text}</Text>
-      </StyledMenuItem>
-    </>
+    <StyledMenuItem onPress={sendToScreen}>
+      <Text>{item.text}</Text>
+    </StyledMenuItem>
   )
 }
 export default MenuItem

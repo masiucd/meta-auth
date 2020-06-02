@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import * as React from 'react'
 import styled from 'styled-components/native'
 import { Text } from 'react-native'
@@ -6,6 +7,7 @@ interface Props {
   text: string
   on: boolean
   toggle: () => void
+  product: Sweet
 }
 
 const StyledOverlay = styled.View`
@@ -43,7 +45,7 @@ const Btn = styled.TouchableOpacity`
   left: 24%;
 `
 
-const Overlay: React.FC<Props> = ({ text, on, toggle }) => {
+const Overlay: React.FC<Props> = ({ text, on, toggle, product }) => {
   return (
     <StyledOverlay>
       {on && (

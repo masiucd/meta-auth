@@ -21,8 +21,8 @@ const menuData: MenuData[] = [
   },
   {
     id: '21312@@@1',
-    text: 'sok',
-    path: 'Search',
+    text: 'about',
+    path: 'About',
   },
 ]
 const images: string[] = [

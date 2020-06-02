@@ -2,11 +2,10 @@ import * as React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { AppState } from '../../redux'
 import {
-  selectRecipes,
   selectSweets,
   selectFilteredSweets,
 } from '../../redux/recipes/recipes.selector'
-import { getRecipes, getSweets } from '../../redux/recipes/recipes.actions'
+import { getSweets } from '../../redux/recipes/recipes.actions'
 import styled from 'styled-components/native'
 import { FlatList } from 'react-native-gesture-handler'
 import RecipeItem from '../components/RecipeItem'

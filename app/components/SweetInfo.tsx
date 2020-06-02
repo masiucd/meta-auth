@@ -3,9 +3,10 @@ import * as React from 'react'
 import styled from 'styled-components/native'
 import { useDispatch } from 'react-redux'
 import { addToCart } from '../../redux/cart/cart.actions'
+import IngredientList from './IngredientList'
 
 interface Props {
-  item: Recipe
+  item: Sweet
 }
 const StyledSweetInfo = styled.View``
 
@@ -24,15 +25,18 @@ const Button = styled.TouchableOpacity`
 `
 
 const Title = styled.Text`
-  font-size: 30px;
-
+  font-size: 50px;
+  text-align: center;
   text-transform: capitalize;
-  padding: 15px;
-`
+  padding: 5px;
+  font-family: 'Chewy';
+  color: ${(props) => props.theme.colors.primary};
+  width: 60%;
 
-const StyledText = styled.View`
-  flex-direction: row;
-  padding: 15px;
+  position: absolute;
+  left: 20%;
+  top: 10%;
+  text-shadow: 2px 2px ${(props) => props.theme.colors.dark};
 `
 
 const Text = styled.Text`
@@ -42,6 +46,11 @@ const Text = styled.Text`
 
 const Description = styled.View`
   padding: 15px;
+  margin: 0 auto;
+
+  justify-content: center;
+  align-items: center;
+  width: 90%;
 `
 
 const OverLayImg = styled.View`
@@ -53,35 +62,18 @@ const OverLayImg = styled.View`
 `
 
 const SweetInfo: React.FC<Props> = ({ item }) => {
-  const { title, image, description, ing1, ing2, ing3, ing4 } = item
+  const { name, image, description, ingredients } = item
   const dispatch = useDispatch()
 
   return (
     <StyledSweetInfo>
       <Image source={{ uri: image }} />
       <OverLayImg />
-      <Title>RecipeInfo {title}</Title>
-      <StyledText>
-        <Text>ingredient1:</Text>
-        <Text>{ing1}</Text>
-      </StyledText>
-      <StyledText>
-        <Text>ingredient2 </Text>
-        <Text>{ing2} </Text>
-      </StyledText>
-      <StyledText>
-        <Text>ingredient3 </Text>
-        <Text>{ing3} </Text>
-      </StyledText>
-      <StyledText>
-        <Text>ingredient4 </Text>
-        <Text>{ing4} </Text>
-      </StyledText>
-
+      <Title>{name}</Title>
+      <IngredientList ingredients={ingredients} />
       <Description>
-        <Text style={{ lineHeight: 26, fontSize: 14 }}>
-          description {description}
-        </Text>
+        <Text style={{ fontSize: 30 }}>Description</Text>
+        <Text style={{ lineHeight: 26, fontSize: 14 }}>{description}</Text>
       </Description>
 
       <Button onPress={() => dispatch(addToCart(item))}>

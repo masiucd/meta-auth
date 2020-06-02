@@ -13,7 +13,7 @@ type ScreenNavigationProp =
   | StackNavigationProp<RootStackParamList, 'Products'>
   | StackNavigationProp<RootStackParamList, 'Recept'>
   | StackNavigationProp<RootStackParamList, 'RecipeInfo'>
-  | StackNavigationProp<RootStackParamList, 'Search'>
+  | StackNavigationProp<RootStackParamList, 'About'>
   | StackNavigationProp<RootStackParamList, 'Store'>
 
 interface Props {

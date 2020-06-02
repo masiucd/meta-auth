@@ -3,13 +3,13 @@ type RootStackParamList = {
   Products: undefined
   Recept: undefined
   Store: undefined
-  Search: undefined
+  About: undefined
   RecipeInfo: { item: Sweet }
 }
 
 type MyTabsStackParamList = {
   Current: RootStackParamList
-  Favorites: undefined
+  Store: undefined
 }
 
 interface MenuData {

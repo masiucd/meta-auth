@@ -46,11 +46,9 @@ const ProductsStyled = styled.View`
 
 const Products: React.FC<Props> = ({ navigation }) => {
   const dispatch = useDispatch()
-  const products = useSelector((state: AppState) => selectProducts(state))
   const isOpen = useSelector((state: AppState) => state.menu.hidden)
   const sweets = useSelector((state: AppState) => selectSweets(state))
   React.useEffect(() => {
-    dispatch(getProducts())
     dispatch(toggleMenu())
     dispatch(getSweets())
   }, [])
