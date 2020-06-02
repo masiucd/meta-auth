@@ -13,6 +13,8 @@ import Menu from '../components/Menu'
 import { toggleMenu } from '../../redux/menu/menu.actions'
 
 import { StackNavigationProp } from '@react-navigation/stack'
+import { selectSweets } from '../../redux/recipes/recipes.selector'
+import { getSweets } from '../../redux/recipes/recipes.actions'
 
 type ProductsScreenNavigationProp = StackNavigationProp<
   RootStackParamList,
@@ -46,10 +48,11 @@ const Products: React.FC<Props> = ({ navigation }) => {
   const dispatch = useDispatch()
   const products = useSelector((state: AppState) => selectProducts(state))
   const isOpen = useSelector((state: AppState) => state.menu.hidden)
-
+  const sweets = useSelector((state: AppState) => selectSweets(state))
   React.useEffect(() => {
     dispatch(getProducts())
     dispatch(toggleMenu())
+    dispatch(getSweets())
   }, [])
 
   return (
@@ -58,9 +61,9 @@ const Products: React.FC<Props> = ({ navigation }) => {
       <ProductsTitle>Products</ProductsTitle>
       <ProductsStyled>
         <FlatList
-          data={products}
+          data={sweets}
           renderItem={({ item }) => <ProductItem product={item} />}
-          keyExtractor={(item) => item.title}
+          keyExtractor={(item) => item.name}
         />
       </ProductsStyled>
     </ScreenWrapper>

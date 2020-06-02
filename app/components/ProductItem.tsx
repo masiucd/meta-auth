@@ -8,7 +8,7 @@ import { View, Text } from 'react-native'
 import { useSpring, animated } from 'react-spring'
 
 interface Props {
-  product: Products
+  product: Sweet
 }
 
 const StyledProduct = styled.TouchableOpacity`
@@ -28,15 +28,13 @@ const Image = styled.Image`
 
 const ProductItem: React.FC<Props> = ({ product }) => {
   const [on, toggle] = useToggle(false)
-  const props = useSpring({
-    width: on ? '100%' : '270%',
-  })
+
   return (
     <>
       <StyledProduct activeOpacity={0.6} onPress={toggle}>
         <Image source={{ uri: product.image }} />
 
-        <OverLay text={product.title} on={on} toggle={toggle} />
+        <OverLay text={product.category} on={on} toggle={toggle} />
       </StyledProduct>
     </>
   )
