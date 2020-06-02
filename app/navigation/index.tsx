@@ -47,7 +47,7 @@ const MainNavigation: React.FC = () => {
       initialRouteName="Home"
       screenOptions={{
         headerStyle: { backgroundColor: theme.colors.primary },
-        headerTintColor: theme.colors.light,
+        headerTintColor: theme.colors.dark,
         headerTitleStyle: {
           fontFamily: 'Chewy',
           fontSize: 30,

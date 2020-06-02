@@ -11,7 +11,6 @@ import styled from 'styled-components/native'
 import { FlatList } from 'react-native-gesture-handler'
 import RecipeItem from '../components/RecipeItem'
 import { StackNavigationProp } from '@react-navigation/stack'
-import { Text } from 'react-native'
 import FilterInput from '../components/SearchFilter'
 
 type RecipeScreenNavigationProp = StackNavigationProp<

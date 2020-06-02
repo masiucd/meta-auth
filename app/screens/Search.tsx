@@ -11,7 +11,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { AppState } from '../../redux'
 import { getSweets } from '../../redux/recipes/recipes.actions'
 import FilterInput from '../components/SearchFilter'
-interface Props { }
+interface Props {}
 
 const Wrapper = animated(View)
 
@@ -41,9 +41,9 @@ const Search: React.FC<Props> = () => {
         {filteredSweets.length > 0
           ? filteredSweets.map((x) => <Text key={x.name}>{x.name}</Text>)
           : sweets.map((x) => {
-            // console.log(x)
-            return <Text key={x.name}>{x.name}</Text>
-          })}
+              // console.log(x)
+              return <Text key={x.name}>{x.name}</Text>
+            })}
       </Wrapper>
     </>
   )
