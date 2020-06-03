@@ -7,6 +7,7 @@ import {
   SearchSweetAction,
   ClearSearchSweetAction,
   GetSweetByCategoryAction,
+  GetSweetByCategoryAPIAction,
 } from './recipes.types'
 
 type GetRecipeDispatch = GetRecipeAction | SetErrorAction
@@ -67,11 +68,30 @@ export const clearSearchSweet = (): ClearSearchSweetAction => {
 }
 
 export const getSweetByCategory = (
-  sweets: Sweet[],
   category: string | undefined,
 ): GetSweetByCategoryAction => {
   return {
     type: ActionTypes.GET_SWEETS_BY_CATEGORY,
-    payload: { sweets, category },
+    payload: category,
+  }
+}
+
+type GetSweetsByAPiDispatch = GetSweetByCategoryAPIAction | SetErrorAction
+
+export const getSweetByAPICategory = (category: string | undefined) => async (
+  dispatch: Dispatch<GetSweetsByAPiDispatch>,
+) => {
+  try {
+    const res = await fetch('http://localhost:3000/product/' + category)
+    const data = await res.json()
+    dispatch({
+      type: ActionTypes.GET_SWEETS_BY_CATEGORY_API,
+      payload: data,
+    })
+  } catch (err) {
+    dispatch({
+      type: ActionTypes.SET_ERROR,
+      payload: 'oops something went wrong',
+    })
   }
 }

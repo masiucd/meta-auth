@@ -9,7 +9,8 @@ export interface RecipeState {
 export enum ActionTypes {
   GET_RECIPE = 'GET_RECIPE',
   GET_SWEETS = 'GET_SWEETS',
-  GET_SWEETS_BY_CATEGORY = 'GET_SWEETS_BY_CATEGORY',
+  GET_SWEETS_BY_CATEGORY = 'GET_SWEETS_BY_CATEGORY', // TODO: TESTING not fpr production
+  GET_SWEETS_BY_CATEGORY_API = 'GET_SWEETS_BY_CATEGORY_API',
   SET_ERROR = 'SET_ERROR',
   CLEAR_ERROR = 'CLEAR_ERROR',
   SEARCH_SWEET = 'SEARCH_SWEET',
@@ -41,7 +42,11 @@ export interface ClearSearchSweetAction {
 }
 export interface GetSweetByCategoryAction {
   type: ActionTypes.GET_SWEETS_BY_CATEGORY
-  payload: { sweets: Sweet[]; category: string | undefined }
+  payload: string | undefined
+}
+export interface GetSweetByCategoryAPIAction {
+  type: ActionTypes.GET_SWEETS_BY_CATEGORY_API
+  payload: string | undefined
 }
 
 export type RecipeAction =
@@ -52,3 +57,4 @@ export type RecipeAction =
   | SearchSweetAction
   | ClearSearchSweetAction
   | GetSweetByCategoryAction
+  | GetSweetByCategoryAPIAction

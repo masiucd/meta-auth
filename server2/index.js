@@ -24,7 +24,7 @@ app.get('/all', (request, response) => {
   database
     .all(
       'SELECT products.productId, products.productName, products.description, products.category, products.image, products.price, ingredients.name, productIngredients.volume, productIngredients.measure FROM ingredients INNER JOIN productIngredients ON ingredients.ingredientId = productIngredients.ingredient_Id INNER JOIN products ON productIngredients.product_Id = products.productId',
-  )
+    )
     .then((products) => {
       const newObjects = []
       for (let i = 0; i < products.length; i++) {
@@ -61,6 +61,17 @@ app.get('/all', (request, response) => {
       }
 
       response.json(newObjects)
+    })
+})
+
+app.get('/product/:product', (req, res) => {
+  database
+    .all('SELECT * from products where category=?', [req.params.product])
+    .then((products) => {
+      res.send(products)
+    })
+    .catch((err) => {
+      console.error(err)
     })
 })
 

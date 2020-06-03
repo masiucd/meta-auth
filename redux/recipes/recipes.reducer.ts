@@ -31,6 +31,22 @@ export default (state: RecipeState = initialState, action: RecipeAction) => {
         }),
         isLoading: false,
       }
+
+    // case ActionTypes.GET_SWEETS_BY_CATEGORY:
+    //   return {
+    //     ...state,
+    //     filteredSweets: state.sweets.filter(
+    //       (x) => x.category === action.payload,
+    //     ),
+    //     isLoading: false,
+    //   }
+
+    case ActionTypes.GET_SWEETS_BY_CATEGORY_API:
+      return {
+        ...state,
+        filteredSweets: action.payload,
+        isLoading: false,
+      }
     case ActionTypes.CLEAR_SEARCH_SWEET:
       return {
         ...state,

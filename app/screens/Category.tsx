@@ -1,11 +1,15 @@
 /* eslint-disable react/prop-types */
 import * as React from 'react'
-import { Text } from 'react-native'
+import { Text, View } from 'react-native'
 import { RouteProp } from '@react-navigation/native'
 import { useDispatch, useSelector } from 'react-redux'
 import { AppState } from '../../redux'
-import { selectSweets } from '../../redux/recipes/recipes.selector'
-import { getSweetByCategory } from '../../redux/recipes/recipes.actions'
+import {
+  getSweetByCategory,
+  getSweets,
+  getSweetByAPICategory,
+} from '../../redux/recipes/recipes.actions'
+import { selectFilteredSweets } from '../../redux/recipes/recipes.selector'
 
 type CategoryScreenRouteProp = RouteProp<RootStackParamList, 'Category'>
 interface Props {
@@ -14,21 +18,23 @@ interface Props {
 
 const Category: React.FC<Props> = ({ route }) => {
   const dispatch = useDispatch()
-  const sweets = useSelector((state: AppState) => selectSweets(state))
+  const sweetsByCategory = useSelector((state: AppState) =>
+    selectFilteredSweets(state),
+  )
+
+  console.log(sweetsByCategory)
+
+  const { category } = route.params
 
   React.useEffect(() => {
-    dispatch(getSweetByCategory(sweets, route.params?.category))
+    // dispatch(getSweetByCategory(category))
+    // dispatch(getSweets())
+    dispatch(getSweetByAPICategory(category))
   }, [])
+
   return (
     <>
-      {sweets.map((x) =>
-        x.category === route.params.category ? (
-          <Text>{x.category}</Text>
-        ) : (
-          <Text>{x.category}</Text>
-        ),
-      )}
-      <Text>Category</Text>
+      <Text>{category}</Text>
     </>
   )
 }
