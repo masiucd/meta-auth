@@ -22,6 +22,7 @@ import RecipeInfo from '../screens/RecipeInfo'
 import { selectCartItemCount } from '../../redux/cart/cart.selector'
 
 import About from '../screens/About'
+import Category from '../screens/Category'
 
 const RootStack = createStackNavigator<RootStackParamList>()
 const TabStack = createBottomTabNavigator<MyTabsStackParamList>()
@@ -65,14 +66,26 @@ const MainNavigation: React.FC = () => {
         name="Products"
         component={Products}
         options={{
-          headerTitle: 'Cookie bookie',
-
+          headerTitle: 'Our Products',
           headerRight: () => (
-            <TouchableOpacity onPress={() => dispatch(toggleMenu())}>
-              <Image
-                source={require('../../assets/menuicon.png')}
-                style={{ width: 35, height: 30, tintColor: '#fff' }}
-              />
+            <TouchableOpacity style={{ position: 'relative' }}>
+              <Icon
+                name="shoppingcart"
+                size={40}
+                style={{ marginRight: 10 }}
+                color="#fff"
+              ></Icon>
+              <Text
+                style={{
+                  color: '#333',
+                  fontSize: 14,
+                  position: 'absolute',
+                  left: 19,
+                  top: 8,
+                }}
+              >
+                {cartItemCount}
+              </Text>
             </TouchableOpacity>
           ),
         }}
@@ -165,6 +178,34 @@ const MainNavigation: React.FC = () => {
             </TouchableOpacity>
           ),
         })}
+      />
+      <RootStack.Screen
+        name="Category"
+        component={Category}
+        options={{
+          headerTitle: 'Category',
+          headerRight: () => (
+            <TouchableOpacity style={{ position: 'relative' }}>
+              <Icon
+                name="shoppingcart"
+                size={40}
+                style={{ marginRight: 10 }}
+                color="#fff"
+              ></Icon>
+              <Text
+                style={{
+                  color: '#333',
+                  fontSize: 14,
+                  position: 'absolute',
+                  left: 19,
+                  top: 8,
+                }}
+              >
+                {cartItemCount}
+              </Text>
+            </TouchableOpacity>
+          ),
+        }}
       />
     </RootStack.Navigator>
   )

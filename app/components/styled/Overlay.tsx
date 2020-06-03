@@ -2,12 +2,20 @@
 import * as React from 'react'
 import styled from 'styled-components/native'
 import { Text } from 'react-native'
+import { StackNavigationProp } from '@react-navigation/stack'
+
+type ProductsScreenNavigationProp = StackNavigationProp<
+  RootStackParamList,
+  'Products'
+>
 
 interface Props {
-  text: string
-  on: boolean
-  toggle: () => void
-  product: Sweet
+  text?: string
+  on?: boolean
+  toggle?: () => void
+  product?: Sweet
+  onNavigation?: ProductsScreenNavigationProp
+  category?: string
 }
 
 const StyledOverlay = styled.View`
@@ -45,13 +53,20 @@ const Btn = styled.TouchableOpacity`
   left: 24%;
 `
 
-const Overlay: React.FC<Props> = ({ text, on, toggle, product }) => {
+const Overlay: React.FC<Props> = ({
+  text,
+  on,
+  toggle,
+  product,
+  onNavigation,
+  category,
+}) => {
   return (
     <StyledOverlay>
       {on && (
         <>
           <OverlayText>{text}</OverlayText>
-          <Btn onPress={() => alert('hello')}>
+          <Btn onPress={() => onNavigation?.navigate('Category', { category })}>
             <Text style={{ color: '#fefefe', fontSize: 25 }}>{text}</Text>
           </Btn>
         </>

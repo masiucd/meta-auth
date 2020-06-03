@@ -3,8 +3,7 @@ import * as React from 'react'
 import styled from 'styled-components/native'
 import { FlatList } from 'react-native-gesture-handler'
 import { menuData } from '../../utils/data'
-import { theme } from '../../utils/theme'
-import { Animated, View } from 'react-native'
+import { Animated } from 'react-native'
 import MenuItem from './MenuItem'
 import { StackNavigationProp } from '@react-navigation/stack'
 
@@ -15,6 +14,7 @@ type ScreenNavigationProp =
   | StackNavigationProp<RootStackParamList, 'RecipeInfo'>
   | StackNavigationProp<RootStackParamList, 'About'>
   | StackNavigationProp<RootStackParamList, 'Store'>
+  | StackNavigationProp<RootStackParamList, 'Category'>
 
 interface Props {
   onNavigation: ScreenNavigationProp

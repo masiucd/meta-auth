@@ -6,6 +6,7 @@ import {
   ActionTypes,
   SearchSweetAction,
   ClearSearchSweetAction,
+  GetSweetByCategoryAction,
 } from './recipes.types'
 
 type GetRecipeDispatch = GetRecipeAction | SetErrorAction
@@ -62,5 +63,15 @@ export const searchSweet = (text: string): SearchSweetAction => {
 export const clearSearchSweet = (): ClearSearchSweetAction => {
   return {
     type: ActionTypes.CLEAR_SEARCH_SWEET,
+  }
+}
+
+export const getSweetByCategory = (
+  sweets: Sweet[],
+  category: string | undefined,
+): GetSweetByCategoryAction => {
+  return {
+    type: ActionTypes.GET_SWEETS_BY_CATEGORY,
+    payload: { sweets, category },
   }
 }

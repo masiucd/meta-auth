@@ -55,32 +55,19 @@ const BgCarousel: React.FC<Props> = ({ images }) => {
   const [selectedIndex, setSelectedIndex] = React.useState<number>(0)
 
   // React.useEffect(() => {
-  //   // setInterval(() => {
-  //   // setSelectedIndex(
-  //   //   (pevState) => (pevState === images.length - 1 ? 0 : +1),
-  //   //   () =>
-  //   //     scrollRef.current.scrollTo({
-  //   //       animated: true,
-  //   //       y: 0,
-  //   //       x: DEVICE_WIDTH * selectedIndex,
-  //   //     }),
-  //   // )
-  //   // setSelectedIndex(selectedIndex + 1)
-  //   // return scrollRef.current.scrollTo({
-  //   //   animated: true,
-  //   //   y: 0,
-  //   //   x: DEVICE_WIDTH * selectedIndex,
-  //   // })
-
-  //   // setSelectedIndex((prevState) => (prevState === images.length - 1 ? 0 : prevState + 1))
-  //   setSelectedIndex(selectedIndex === images.length - 1 ? 0 : selectedIndex + 1)
-  //   //   scrollRef.current.scrollTo({
-  //   //     animated: true,
-  //   //     y: 0,
-  //   //     x: DEVICE_WIDTH * selectedIndex,
-  //   //   })
-
-  //   // }, 12000)
+  //   setInterval(() => {
+  //     setSelectedIndex((prevState) =>
+  //       prevState === images.length - 1 ? 0 : prevState + 1,
+  //     )
+  //     setSelectedIndex(
+  //       selectedIndex === images.length - 1 ? 0 : selectedIndex + 1,
+  //     )
+  //     scrollRef.current.scrollTo({
+  //       animated: true,
+  //       y: 0,
+  //       x: DEVICE_WIDTH * selectedIndex,
+  //     })
+  //   }, 4000)
   // }, [selectedIndex])
 
   const updateIndex = (event: any) => {
@@ -93,6 +80,8 @@ const BgCarousel: React.FC<Props> = ({ images }) => {
     setSelectedIndex(newIndex)
   }
 
+  const imageList = ['white.png', 'ch.png', 'white.png', 'white.png']
+
   return (
     <StyledView>
       <ScrollView
@@ -101,9 +90,15 @@ const BgCarousel: React.FC<Props> = ({ images }) => {
         onMomentumScrollEnd={updateIndex}
         ref={scrollRef}
       >
-        {images.map((image) => (
+        {/* {images.map((image) => (
+          // <StyledImg key={image} source={require(`../cookie_imgs/${image}`)} />
           <StyledImg key={image} source={{ uri: image }} />
-        ))}
+        ))} */}
+        <StyledImg source={require('../cookie_imgs/one.jpg')} />
+        <StyledImg source={require('../cookie_imgs/mouse.png')} />
+        <StyledImg source={require('../cookie_imgs/white.png')} />
+        <StyledImg source={require('../cookie_imgs/mouse.png')} />
+        <StyledImg source={require('../cookie_imgs/ch.png')} />
       </ScrollView>
       <CircleWrapper>
         {images.map((img, index) => (

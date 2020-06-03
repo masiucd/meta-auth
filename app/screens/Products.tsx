@@ -7,14 +7,9 @@ import { FlatList } from 'react-native-gesture-handler'
 import ProductItem from '../components/ProductItem'
 import { useDispatch, useSelector } from 'react-redux'
 import { AppState } from '../../redux'
-import { getProducts } from '../../redux/products/products.actions'
-import { selectProducts } from '../../redux/products/products.selector'
-import Menu from '../components/Menu'
-import { toggleMenu } from '../../redux/menu/menu.actions'
-
-import { StackNavigationProp } from '@react-navigation/stack'
 import { selectSweets } from '../../redux/recipes/recipes.selector'
 import { getSweets } from '../../redux/recipes/recipes.actions'
+import { StackNavigationProp } from '@react-navigation/stack'
 
 type ProductsScreenNavigationProp = StackNavigationProp<
   RootStackParamList,
@@ -35,8 +30,6 @@ const ProductsTitle = styled(Title)`
 `
 
 const ProductsStyled = styled.View`
-  /* flex: 2; */
-  /* flex-wrap: wrap; */
   margin-top: 80px;
   align-items: center;
   justify-content: center;
@@ -46,21 +39,21 @@ const ProductsStyled = styled.View`
 
 const Products: React.FC<Props> = ({ navigation }) => {
   const dispatch = useDispatch()
-  const isOpen = useSelector((state: AppState) => state.menu.hidden)
   const sweets = useSelector((state: AppState) => selectSweets(state))
+
   React.useEffect(() => {
-    dispatch(toggleMenu())
     dispatch(getSweets())
   }, [])
 
   return (
     <ScreenWrapper>
-      {isOpen && <Menu onNavigation={navigation} />}
       <ProductsTitle>Products</ProductsTitle>
       <ProductsStyled>
         <FlatList
           data={sweets}
-          renderItem={({ item }) => <ProductItem product={item} />}
+          renderItem={({ item }) => (
+            <ProductItem product={item} onNavigation={navigation} />
+          )}
           keyExtractor={(item) => item.name}
         />
       </ProductsStyled>

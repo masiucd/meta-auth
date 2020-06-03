@@ -4,6 +4,7 @@ type RootStackParamList = {
   Recept: undefined
   Store: undefined
   About: undefined
+  Category: { category: string | undefined }
   RecipeInfo: { item: Sweet }
 }
 

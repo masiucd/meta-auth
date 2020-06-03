@@ -8,6 +8,7 @@ export const addToCart = (cartItem: Sweet): AddCartAction => {
     payload: cartItem,
   }
 }
+
 export const removeFromCartAction = (cartItem: Sweet): RemoveFromCartAction => {
   return {
     type: ActionTypes.REMOVE_FROM_CART,

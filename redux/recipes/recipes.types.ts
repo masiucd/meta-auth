@@ -9,6 +9,7 @@ export interface RecipeState {
 export enum ActionTypes {
   GET_RECIPE = 'GET_RECIPE',
   GET_SWEETS = 'GET_SWEETS',
+  GET_SWEETS_BY_CATEGORY = 'GET_SWEETS_BY_CATEGORY',
   SET_ERROR = 'SET_ERROR',
   CLEAR_ERROR = 'CLEAR_ERROR',
   SEARCH_SWEET = 'SEARCH_SWEET',
@@ -38,6 +39,10 @@ export interface SearchSweetAction {
 export interface ClearSearchSweetAction {
   type: ActionTypes.CLEAR_SEARCH_SWEET
 }
+export interface GetSweetByCategoryAction {
+  type: ActionTypes.GET_SWEETS_BY_CATEGORY
+  payload: { sweets: Sweet[]; category: string | undefined }
+}
 
 export type RecipeAction =
   | GetRecipeAction
@@ -46,3 +51,4 @@ export type RecipeAction =
   | GetSweetAction
   | SearchSweetAction
   | ClearSearchSweetAction
+  | GetSweetByCategoryAction

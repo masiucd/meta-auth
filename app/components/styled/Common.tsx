@@ -38,13 +38,14 @@ const Image = styled.ImageBackground`
 `
 
 const ColText = styled.Text`
-  font-size: 25px;
+  font-size: 35px;
   position: absolute;
   top: 50%;
-  left: 35%;
+  left: 25%;
   color: ${theme.colors.primary};
   text-shadow: 1px 2px ${theme.colors.dark};
   font-family: 'Chewy';
+  z-index: 3;
 `
 
 export { Title, ColumnWrapper, ColText, ColLeft, ColRight, Image }

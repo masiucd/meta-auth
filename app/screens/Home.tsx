@@ -16,6 +16,7 @@ import {
   ColText,
   ColumnWrapper,
 } from '../components/styled/Common'
+import Overlay from '../components/styled/Overlay'
 
 type HomeScreenRouteProp = RouteProp<RootStackParamList, 'Home'>
 
@@ -41,22 +42,14 @@ const HomeScreen: React.FC<Props> = ({ route, navigation }) => {
         <Title>Cookie Bookie</Title>
         <ColumnWrapper>
           <ColLeft onPress={() => navigation.navigate('Products')}>
-            <Image
-              source={{
-                uri:
-                  'https://images.unsplash.com/photo-1499195333224-3ce974eecb47?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1248&q=80',
-              }}
-            />
-            <ColText>Latest</ColText>
+            <Image source={require('../cookie_imgs/white.png')} />
+            <ColText>Products</ColText>
+            <Overlay />
           </ColLeft>
-          <ColRight onPress={() => navigation.navigate('Store')}>
-            <Image
-              source={{
-                uri:
-                  'https://images.unsplash.com/photo-1514517521153-1be72277b32f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80',
-              }}
-            />
-            <ColText>Blog</ColText>
+          <ColRight onPress={() => navigation.navigate('About')}>
+            <Image source={require('../cookie_imgs/ch.png')} />
+            <ColText>About</ColText>
+            <Overlay />
           </ColRight>
         </ColumnWrapper>
       </StyledContainer>
