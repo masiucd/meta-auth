@@ -12,7 +12,7 @@ const StyledMenuItem = styled.TouchableOpacity`
 `
 
 const Text = styled.Text`
-  color: ${theme.colors.light};
+  color: ${theme.colors.dark};
   padding: 10px;
   font-size: 21px;
   font-weight: 600;

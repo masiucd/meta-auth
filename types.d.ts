@@ -6,6 +6,7 @@ type RootStackParamList = {
   About: undefined
   Category: { category: string | undefined }
   RecipeInfo: { item: Sweet }
+  WebView: { url: string }
 }
 
 type MyTabsStackParamList = {

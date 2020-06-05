@@ -23,6 +23,7 @@ import { selectCartItemCount } from '../../redux/cart/cart.selector'
 
 import About from '../screens/About'
 import Category from '../screens/Category'
+import WebViewComponent from '../screens/WebView'
 
 const RootStack = createStackNavigator<RootStackParamList>()
 const TabStack = createBottomTabNavigator<MyTabsStackParamList>()
@@ -211,6 +212,11 @@ const MainNavigation: React.FC = () => {
           ),
         }}
       />
+      <RootStack.Screen
+        name="WebView"
+        component={WebViewComponent}
+        options={{}}
+      />
     </RootStack.Navigator>
   )
 }
@@ -241,7 +247,7 @@ const TabsNav: React.FC = () => {
                   resizeMode="contain"
                   style={{
                     width: 25,
-                    tintColor: props.focused ? props.color : theme.colors.dark,
+                    tintColor: props.focused ? theme.colors.dark : props.color,
                   }}
                 />
               )

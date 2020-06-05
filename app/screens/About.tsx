@@ -3,8 +3,20 @@ import useToggle from '../hooks/useToggle'
 import styled from 'styled-components/native'
 import HeaderImage from '../components/HeaderImage'
 import SocialMedia from '../components/SocialMedia'
+import { StackNavigationProp } from '@react-navigation/stack'
+import { RouteProp } from '@react-navigation/native'
 
-interface Props {}
+type AboutScreenRouteProp = RouteProp<RootStackParamList, 'About'>
+
+type AboutScreenNavigationProp = StackNavigationProp<
+  RootStackParamList,
+  'About'
+>
+
+interface Props {
+  route: AboutScreenRouteProp
+  navigation: AboutScreenNavigationProp
+}
 
 const AboutStyles = styled.View`
   flex: 1;
@@ -24,7 +36,7 @@ const ContentText = styled(IntroText)`
   font-size: 14px;
 `
 
-const About: React.FC<Props> = () => {
+const About: React.FC<Props> = ({ route, navigation }) => {
   const [on, toggle] = useToggle()
 
   return (
@@ -61,7 +73,7 @@ const About: React.FC<Props> = () => {
           Adipisci facilis harum debitis? Qui impedit earum hic laborum eos
           explicabo
         </ContentText>
-        <SocialMedia />
+        <SocialMedia onNavigation={navigation} />
       </ContentWrapper>
     </AboutStyles>
   )
