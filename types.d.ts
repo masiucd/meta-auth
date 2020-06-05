@@ -20,7 +20,7 @@ interface MenuData {
 }
 
 interface Products {
-  id: string
+  id: string | number
   title: string
   image: string
   path: string
@@ -55,4 +55,11 @@ interface Sweet {
   price: number
   ingredients: Array<Ingredient>
   qty: number
+}
+
+interface SocialMedia {
+  name: string
+  text: string
+  webUrl: string
+  icon: string
 }

@@ -120,7 +120,11 @@ const MainNavigation: React.FC = () => {
           ),
         })}
       />
-      <RootStack.Screen name="About" component={About} />
+      <RootStack.Screen
+        name="About"
+        component={About}
+        options={{ headerTitle: 'We mad this App' }}
+      />
       <RootStack.Screen
         name="Store"
         component={Store}
