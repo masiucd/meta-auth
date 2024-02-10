@@ -7,3 +7,5 @@ This is a simple project to demonstrate how to authenticate with Next js using t
 - Next js
 - Jose
 - Tailwind CSS
+
+View the application [here](https://meta-auth-gules.vercel.app/)
