@@ -4,11 +4,8 @@ import {updateSession} from "./lib/session";
 
 export async function middleware(request: NextRequest) {
   let loggedIn = request.cookies.get("session")?.value;
-  if (loggedIn) {
+  if (loggedIn && request.nextUrl.pathname.startsWith("/login")) {
     return NextResponse.redirect(new URL("/profile", request.url));
-  }
-  if (!loggedIn && request.nextUrl.pathname === "/profile") {
-    return NextResponse.redirect(new URL("/login", request.url));
   }
   return await updateSession(request);
 }
