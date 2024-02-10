@@ -12,7 +12,7 @@ export function PageWrapper({children, className, fluid}: Props) {
   return (
     <section
       className={cn(
-        "mx-auto max-w-5xl w-full border border-blue-600 flex flex-col flex-1",
+        "mx-auto max-w-5xl w-full flex flex-col flex-1",
         className,
         fluid ? "max-w-none" : "max-w-5xl"
       )}
