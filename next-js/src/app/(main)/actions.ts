@@ -6,9 +6,6 @@ import {redirect} from "next/navigation";
 import {encrypt} from "@/lib/jwt";
 import {getExpires} from "@/lib/session";
 
-const AdminEmail = "masiu@ex.com";
-const AdminPassword = "admin";
-
 /**
  * Logs the user in by setting a session cookie
  * and redirecting to the profile page
@@ -23,7 +20,8 @@ export async function login(formData: FormData) {
     };
   }
   // Here in a real app we do our database lookup
-  if (email !== AdminEmail || password !== AdminPassword) {
+  // hash the password would be a good idea in a real app
+  if (typeof email !== "string" || typeof password !== "string") {
     return {
       error: "Invalid email or password",
       ok: false,
