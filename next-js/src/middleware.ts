@@ -1,11 +1,13 @@
 import {type NextRequest, NextResponse} from "next/server";
 
-import {updateSession} from "./lib/session";
+import {getSession, updateSession} from "./lib/session";
 
 export async function middleware(request: NextRequest) {
-  let loggedIn = request.cookies.get("session")?.value;
-  if (loggedIn && request.nextUrl.pathname.startsWith("/login")) {
-    return NextResponse.redirect(new URL("/profile", request.url));
+  if (request.nextUrl.pathname.startsWith("/login")) {
+    let loggedIn = await getSession();
+    if (loggedIn) {
+      return NextResponse.redirect(new URL("/profile", request.url));
+    }
   }
   return await updateSession(request);
 }

@@ -1,5 +1,6 @@
 import "server-only";
 
+import {cookies} from "next/headers";
 import {type NextRequest, NextResponse} from "next/server";
 
 import {decrypt, encrypt} from "./jwt";
@@ -27,4 +28,10 @@ export async function updateSession(request: NextRequest) {
 export function getExpires(seconds: number = 60): Date {
   let milliseconds = 1000;
   return new Date(Date.now() + seconds * milliseconds); // one minute from now if not specified
+}
+
+export async function getSession() {
+  let session = cookies().get("session")?.value;
+  if (!session) return null;
+  return await decrypt(session);
 }

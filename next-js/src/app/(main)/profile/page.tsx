@@ -1,12 +1,12 @@
-import {cookies} from "next/headers";
 import {redirect} from "next/navigation";
 
 import {PageWrapper} from "@/app/components/page-wrapper";
+import {getSession} from "@/lib/session";
 
 import {logout} from "../actions";
 
 async function checkAuth() {
-  let loggedIn = cookies().get("session")?.value;
+  let loggedIn = await getSession();
   if (!loggedIn) {
     return redirect("/login");
   }
