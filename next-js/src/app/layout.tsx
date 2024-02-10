@@ -4,7 +4,7 @@ import type {Metadata} from "next";
 import {Inter} from "next/font/google";
 import {type ReactNode} from "react";
 
-import {cn} from "./lib/cn";
+import {cn} from "@/lib/cn";
 
 const inter = Inter({subsets: ["latin"]});
 

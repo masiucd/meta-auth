@@ -1,27 +1,10 @@
 "use server";
-import "server-only";
 
-import {jwtVerify, SignJWT} from "jose";
 import {cookies} from "next/headers";
 import {redirect} from "next/navigation";
 
-let secretKey = "secret";
-let key = new TextEncoder().encode(secretKey);
-
-async function encrypt(payload: {email: string; expires: Date}) {
-  return await new SignJWT(payload)
-    .setProtectedHeader({alg: "HS256"})
-    .setIssuedAt()
-    .setExpirationTime(payload.expires)
-    .sign(key);
-}
-
-export async function decrypt(input: string) {
-  let {payload} = await jwtVerify(input, key, {
-    algorithms: ["HS256"],
-  });
-  return payload;
-}
+import {encrypt} from "@/lib/jwt";
+import {getExpires} from "@/lib/session";
 
 const AdminEmail = "masiu@ex.com";
 const AdminPassword = "admin";
@@ -41,7 +24,7 @@ export async function login(formData: FormData) {
     };
   }
 
-  let expires = new Date(Date.now() + 30 * 1000); // 30 seconds
+  let expires = getExpires();
   let session = await encrypt({email, expires});
   cookies().set("session", session, {
     expires,

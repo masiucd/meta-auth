@@ -1,20 +1,19 @@
 import {type NextRequest, NextResponse} from "next/server";
 
-import {decrypt} from "./app/(main)/actions";
+import {updateSession} from "./lib/session";
 
 export async function middleware(request: NextRequest) {
-  let session = request.cookies.get("session");
-  if (session) {
-    let {value} = session;
-    let decrypted = await decrypt(value);
-    if (!decrypted) {
-      return NextResponse.rewrite(new URL("/login", request.url));
-    }
-    if (decrypted && request.nextUrl.pathname === "/") {
-      return NextResponse.rewrite(new URL("/profile", request.url));
-    }
+  let loggedIn = request.cookies.get("session")?.value;
+  if (loggedIn) {
+    return NextResponse.redirect(new URL("/profile", request.url));
   }
-  if (!session && request.nextUrl.pathname === "/profile") {
-    return NextResponse.rewrite(new URL("/login", request.url));
+  if (!loggedIn && request.nextUrl.pathname === "/profile") {
+    return NextResponse.redirect(new URL("/login", request.url));
   }
+  return await updateSession(request);
 }
+
+export const config = {
+  // do not run the middleware for the following paths
+  matcher: ["/((?!api|_next/static|_next/image|.*\\.png$).*)"],
+};
