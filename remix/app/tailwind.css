@@ -1,3 +1,28 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .layout-base {
+    @apply h-24 px-2 py-4;
+  }
+}
+
+@layer base {
+  h1 {
+    @apply text-5xl tracking-tight leading-tight font-bold;
+  }
+  h2 {
+    @apply text-4xl tracking-tight leading-tight font-bold;
+  }
+  h3 {
+    @apply text-3xl tracking-tight leading-tight font-bold;
+  }
+  h2 {
+    @apply text-2xl tracking-tight leading-tight font-bold;
+  }
+
+  p {
+    @apply text-base leading-tight;
+  }
+}

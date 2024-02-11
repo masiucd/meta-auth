@@ -23,11 +23,19 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body>
-        <Outlet />
+      <body className="bg-gray-50 text-gray-700">
+        <header className="layout-base">
+          <strong>Header</strong>
+        </header>
+        <main className="mx-auto flex min-h-[calc(100dvh-14rem)] max-w-5xl flex-col">
+          <Outlet />
+        </main>
         <ScrollRestoration />
         <Scripts />
         <LiveReload />
+        <footer className="layout-base">
+          <strong>Footer</strong>
+        </footer>
       </body>
     </html>
   );
