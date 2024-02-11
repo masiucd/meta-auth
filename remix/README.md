@@ -7,5 +7,5 @@ This is a simple example of how to authenticate with Remix js using session base
 ### Tools used:
 
 - Remix js
-- JOSE (JWT)
+- Cookie session storage
 - Tailwind CSS
