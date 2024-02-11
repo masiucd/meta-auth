@@ -27,21 +27,32 @@ module.exports = {
     // React
     {
       files: ["**/*.{js,jsx,ts,tsx}"],
-      plugins: ["react", "jsx-a11y"],
+      plugins: ["react", "jsx-a11y", "simple-import-sort"],
       extends: [
         "plugin:react/recommended",
         "plugin:react/jsx-runtime",
         "plugin:react-hooks/recommended",
         "plugin:jsx-a11y/recommended",
+        "plugin:react-hooks/recommended",
+        "plugin:tailwindcss/recommended",
       ],
+      rules: {
+        "simple-import-sort/imports": "error",
+        "simple-import-sort/exports": "error",
+        "no-duplicate-imports": "error",
+        "react-hooks/rules-of-hooks": "error",
+        "react-hooks/exhaustive-deps": "error",
+        "no-console": "warn",
+        semi: ["error", "always"],
+      },
       settings: {
         react: {
           version: "detect",
         },
         formComponents: ["Form"],
         linkComponents: [
-          { name: "Link", linkAttribute: "to" },
-          { name: "NavLink", linkAttribute: "to" },
+          {name: "Link", linkAttribute: "to"},
+          {name: "NavLink", linkAttribute: "to"},
         ],
         "import/resolver": {
           typescript: {},
