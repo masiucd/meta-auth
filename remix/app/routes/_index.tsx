@@ -9,7 +9,7 @@ export const meta: MetaFunction = () => {
 
 export default function Index() {
   return (
-    <div className="bg-red-500">
+    <div className="border-spacing-4 bg-red-500  text-red-500  ">
       <h1>asasd</h1>
     </div>
   );
