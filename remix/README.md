@@ -1,38 +1,11 @@
-# Welcome to Remix!
+# Authentication with Remix js
 
-- [Remix Docs](https://remix.run/docs)
+## Description
 
-## Development
+This is a simple example of how to authenticate with Remix js using session based authentication.
 
-From your terminal:
+### Tools used:
 
-```sh
-npm run dev
-```
-
-This starts your app in development mode, rebuilding assets on file changes.
-
-## Deployment
-
-First, build your app for production:
-
-```sh
-npm run build
-```
-
-Then run the app in production mode:
-
-```sh
-npm start
-```
-
-Now you'll need to pick a host to deploy it to.
-
-### DIY
-
-If you're familiar with deploying node applications, the built-in Remix app server is production-ready.
-
-Make sure to deploy the output of `remix build`
-
-- `build/`
-- `public/build/`
+- Remix js
+- JOSE (JWT)
+- Tailwind CSS
