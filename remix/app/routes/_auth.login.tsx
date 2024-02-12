@@ -8,7 +8,6 @@ import {Form, useLoaderData} from "@remix-run/react";
 import {cn} from "lib/cn";
 import {useState} from "react";
 
-import {PageWrapper} from "~/components/page-wrapper";
 import {commitSession, getSession} from "~/sessions.server";
 
 let validUserNames = Object.freeze([
@@ -65,7 +64,7 @@ export default function LoginPage() {
   // if there is an error in the session we will display it here.
   let {error} = useLoaderData<typeof loader>();
   return (
-    <PageWrapper className="items-center justify-center">
+    <>
       <div className="w-full max-w-[32rem] rounded-md border border-gray-700 bg-gray-100 p-10 shadow-md">
         <div className="mb-5">
           <h1>Login</h1>
@@ -117,7 +116,7 @@ export default function LoginPage() {
         </Form>
         <UserNameHint />
       </div>
-    </PageWrapper>
+    </>
   );
 }
 
