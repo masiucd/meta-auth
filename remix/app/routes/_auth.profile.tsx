@@ -6,21 +6,37 @@ import {
 import {Form, useLoaderData} from "@remix-run/react";
 import {format, parseISO} from "date-fns";
 
-import {commitSession, getSession, setSessionData} from "~/sessions.server";
+import {
+  commitSession,
+  destroySession,
+  getSession,
+  setSessionData,
+} from "~/sessions.server";
 
 export async function action({request}: ActionFunctionArgs) {
   let formData = await request.formData();
-  let username = formData.get("username");
+  let action = formData.get("_action");
   let session = await getSession(request.headers.get("Cookie"));
-  if (!username || typeof username !== "string") {
-    return redirect("/login");
+  if (action === "refresh") {
+    let username = formData.get("username");
+    if (!username || typeof username !== "string") {
+      return redirect("/login");
+    }
+    setSessionData(session, username);
+    return redirect("/profile", {
+      headers: {
+        "Set-Cookie": await commitSession(session),
+      },
+    });
   }
-  setSessionData(session, username);
-  return redirect("/profile", {
-    headers: {
-      "Set-Cookie": await commitSession(session),
-    },
-  });
+  if (action === "logout") {
+    return redirect("/login", {
+      headers: {
+        "Set-Cookie": await destroySession(session),
+      },
+    });
+  }
+  return new Response("Bad Request", {status: 400});
 }
 
 export async function loader({request}: LoaderFunctionArgs) {
