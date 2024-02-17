@@ -8,7 +8,7 @@ import {Form, useLoaderData} from "@remix-run/react";
 import {cn} from "lib/cn";
 import {useState} from "react";
 
-import {commitSession, getSession} from "~/sessions.server";
+import {commitSession, getSession, setSessionData} from "~/sessions.server";
 
 let validUserNames = Object.freeze([
   "apple",
@@ -50,8 +50,7 @@ export async function action({request}: ActionFunctionArgs) {
     });
   }
   // Username was valid so we set it in the session.
-  session.set("username", userName);
-
+  setSessionData(session, userName);
   // Login was successful so we redirect to the profile page.
   return redirect("/profile", {
     headers: {

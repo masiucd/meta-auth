@@ -1,7 +1,8 @@
-import {createCookieSessionStorage} from "@remix-run/node"; // or cloudflare/deno
+import {createCookieSessionStorage, type Session} from "@remix-run/node"; // or cloudflare/deno
 
 type SessionData = {
   username: string;
+  expiresAt: string;
 };
 
 type SessionFlashData = {
@@ -23,5 +24,13 @@ const {getSession, commitSession, destroySession} = createCookieSessionStorage<
     secure: process.env.NODE_ENV === "production",
   },
 });
+
+export function setSessionData(
+  session: Session<SessionData, SessionFlashData>,
+  username: string
+) {
+  session.set("username", username);
+  session.set("expiresAt", new Date(Date.now() + 1000 * 60).toISOString()); // 60 seconds
+}
 
 export {commitSession, destroySession, getSession};
