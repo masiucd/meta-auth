@@ -1,3 +1,3 @@
-export default function RegisterPage() {
+export default function RegisterRoute() {
   return <div>Register</div>;
 }

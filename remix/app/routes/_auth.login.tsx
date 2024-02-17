@@ -60,7 +60,7 @@ export async function action({request}: ActionFunctionArgs) {
   });
 }
 
-export default function LoginPage() {
+export default function LoginRoute() {
   // if there is an error in the session we will display it here.
   let {error} = useLoaderData<typeof loader>();
   return (
