@@ -70,62 +70,89 @@ export default function LoginRoute() {
           <h1>Login</h1>
           <p>Login to your account to continue.</p>
         </div>
-        <Form method="post">
-          <fieldset
-            className={cn(
-              "flex flex-col gap-2",
-              error &&
-                "animate-pulse animate-once animate-duration-[600ms] animate-ease-in animate-reverse"
-            )}
-          >
-            <div className="flex flex-col gap-1">
-              <label htmlFor="username">Username</label>
-              <input
-                type="text"
-                id="username"
-                name="username"
-                required
-                className="h-10 rounded-md border px-3 transition duration-200 ease-in-out focus:border-transparent focus:outline-none focus:ring-2 focus:ring-primary-500"
-              />
-            </div>
-            <div className="flex flex-col gap-1">
-              <label htmlFor="password">Password</label>
-              <input
-                type="password"
-                id="password"
-                name="password"
-                required
-                className="h-10 rounded-md border px-3 transition duration-200 ease-in-out focus:border-transparent focus:outline-none focus:ring-2 focus:ring-primary-500"
-              />
-            </div>
-            <div className="flex border">
-              <button
-                className="w-full rounded-md bg-gray-800 px-4 py-2 font-bold text-gray-100 transition-opacity duration-150 hover:opacity-65"
-                type="submit"
-              >
-                Login
-              </button>
-            </div>
-            <div className="h-4">
-              {
-                // Display any errors that were set in the session.
-                error ? <p className="text-red-500">{error}</p> : null
-              }
-            </div>
-          </fieldset>
-        </Form>
-        <UserNameHint />
+        <LoginForm error={error} />
       </div>
     </>
   );
 }
 
-function UserNameHint() {
+function LoginForm({error}: {error: string | undefined}) {
+  let [selectedUsername, setSelectedUsername] = useState<string | null>(null);
+  return (
+    <>
+      <Form method="post">
+        <fieldset
+          className={cn(
+            "flex flex-col gap-2",
+            error &&
+              "animate-pulse animate-once animate-duration-[600ms] animate-ease-in animate-reverse"
+          )}
+        >
+          <div className="flex flex-col gap-1">
+            <label htmlFor="username">Username</label>
+            <input
+              type="text"
+              id="username"
+              name="username"
+              value={selectedUsername ?? undefined}
+              required
+              className="h-10 rounded-md border px-3 transition duration-200 ease-in-out focus:border-transparent focus:outline-none focus:ring-2 focus:ring-primary-500"
+            />
+          </div>
+          <div className="flex flex-col gap-1">
+            <label htmlFor="password">Password</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              required
+              className="h-10 rounded-md border px-3 transition duration-200 ease-in-out focus:border-transparent focus:outline-none focus:ring-2 focus:ring-primary-500"
+            />
+          </div>
+          <div className="flex border">
+            <button
+              className="w-full rounded-md bg-gray-800 px-4 py-2 font-bold text-gray-100 transition-opacity duration-150 hover:opacity-65"
+              type="submit"
+            >
+              Login
+            </button>
+          </div>
+          <div className="h-4">
+            {
+              // Display any errors that were set in the session.
+              error ? <p className="text-red-500">{error}</p> : null
+            }
+          </div>
+        </fieldset>
+      </Form>
+      <UserNameHint
+        selectUsername={(name: string) => {
+          setSelectedUsername(name);
+        }}
+        clearSelectedUsername={() => {
+          setSelectedUsername(null);
+        }}
+        disabled={selectedUsername === null}
+      />
+    </>
+  );
+}
+
+function UserNameHint({
+  selectUsername,
+  clearSelectedUsername,
+  disabled,
+}: {
+  selectUsername: (name: string) => void;
+  clearSelectedUsername: () => void;
+  disabled: boolean;
+}) {
   let [open, setOpen] = useState(false);
+
   return (
     <div className="flex flex-col">
       <small className="mb-2 block">
-        Don&apos;t know the username or password?
+        Don&apos;t know the username?
         <button
           type="button"
           className={cn(
@@ -143,11 +170,33 @@ function UserNameHint() {
             {validUserNames.map((name) => (
               <li
                 key={name}
-                className="rounded-md bg-gray-200 px-2 py-1 text-sm font-bold text-gray-800"
+                className="rounded-md bg-gray-200 px-2 py-1 text-sm font-bold text-gray-800 "
               >
-                {name}
+                <button
+                  type="button"
+                  className="capitalize hover:text-primary-500"
+                  onClick={() => {
+                    selectUsername(name);
+                    setOpen(false);
+                  }}
+                >
+                  {name}
+                </button>
               </li>
             ))}
+            <li className="rounded-md bg-gray-400 px-2 py-1 text-sm font-bold">
+              <button
+                type="button"
+                className="capitalize text-gray-600 hover:text-primary-500 disabled:cursor-not-allowed disabled:opacity-50"
+                disabled={disabled}
+                onClick={() => {
+                  clearSelectedUsername();
+                  setOpen(false);
+                }}
+              >
+                Clear
+              </button>
+            </li>
           </>
         )}
       </ul>
