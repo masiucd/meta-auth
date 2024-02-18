@@ -19,7 +19,7 @@ export async function login(formData: FormData) {
       ok: false,
     };
   }
-  // Here in a real app we do our database lookup
+  // Here in a real app we do our database lookup to find the user
   // hash the password would be a good idea in a real app
   if (typeof email !== "string" || typeof password !== "string") {
     return {
